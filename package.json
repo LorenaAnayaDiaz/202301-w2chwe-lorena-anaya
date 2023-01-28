@@ -1,0 +1,23 @@
+{
+  "name": "202301-w2chwe-lorena-anaya",
+  "version": "1.0.0",
+  "description": "Game of Life project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LorenaAnayaDiaz/202301-w2chwe-lorena-anaya.git"
+  },
+  "author": "Lorena Anaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LorenaAnayaDiaz/202301-w2chwe-lorena-anaya/issues"
+  },
+  "homepage": "https://github.com/LorenaAnayaDiaz/202301-w2chwe-lorena-anaya#readme",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
