@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  min-height: 100%;
+  min-width: 100%;
+}
+.game-container {
+  display: none;
+}
+
+.game-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  position: sticky;
+}
+
+.start-game-button {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  border-radius: 20px;
+  border: 1px solid white;
+  font-family: "Rubik";
+  color: white;
+  background-color: lightpink;
+  margin: 0 auto;
+}
+
+.start-game-button:hover {
+  background-color: palevioletred;
+}
+
+table {
+  background-color: white;
+  border-spacing: 2px;
+  margin: 0 auto;
+  border: 5px solid palevioletred;
+}
+
+td {
+  border: 1px solid pink;
+  width: 2rem;
+  height: 2rem;
+}
+td.dead {
+  background-color: transparent;
+}
+
+td.alive {
+  background-color: palevioletred;
+}
+
+.game-title {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: palevioletred;
+  font-size: 4rem;
+  font-family: "Rubik";
+}
+
+.game-setup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  font-family: "Rubik";
+  text-align: center;
+  color: pink;
+}
+
+.game-instructions {
+  font-size: 1rem;
+  padding: 0 3rem;
+}
+
+.game-set-up__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#columns-number {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+#rows-number {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.create-grid-button {
+  text-align: center;
+  font-size: 1.7rem;
+  padding: 0.8rem;
+  border-radius: 20px;
+  border: 1px solid white;
+  font-family: "Rubik";
+  color: white;
+  background-color: lightpink;
+}
+
+.create-grid-button:hover {
+  background-color: palevioletred;
+}
