@@ -1,0 +1,38 @@
+{
+  "name": "202301-w2chwe-lorena-anaya",
+  "version": "1.0.0",
+  "description": "Game of Life project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx jest --coverage",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LorenaAnayaDiaz/202301-w2chwe-lorena-anaya.git"
+  },
+  "author": "Lorena Anaya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LorenaAnayaDiaz/202301-w2chwe-lorena-anaya/issues"
+  },
+  "homepage": "https://github.com/LorenaAnayaDiaz/202301-w2chwe-lorena-anaya#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.20.11",
+    "husky": "^8.0.0",
+    "jest": "^29.4.1",
+    "typescript": "^4.9.4"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": [
+          "@babel/plugin-transform-modules-commonjs"
+        ]
+      }
+    }
+  },
+  "dependencies": {
+    "yaml": "^2.2.1"
+  }
+}
