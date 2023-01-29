@@ -4,9 +4,10 @@ const resetGameButton = document.querySelector(".reset-game-button");
 let dimensionX;
 let dimensionY;
 let gridMatrix = [];
-let newGridMatrix = [];
 let count = 0;
 let neighboursArray = [];
+let cell;
+let timer;
 
 //EVENTOS
 createGridButton.addEventListener("click", (event) => {
@@ -32,7 +33,7 @@ function createGrid() {
   for (let i = 0; i < dimensionX; i++) {
     const rows = document.createElement("tr");
     for (let j = 0; j < dimensionY; j++) {
-      const cell = document.createElement("td");
+      cell = document.createElement("td");
       cell.setAttribute("class", "dead");
       cell.setAttribute("id", i + "_" + j);
       cell.onclick = cellChangeColor;
@@ -45,9 +46,9 @@ function createGrid() {
 
 //FUNCION PARA CAMBIAR EL COLOR DE LAS CELULAS
 function cellChangeColor() {
-  let location = this.id.split("_");
-  let rowIndex = parseInt(location[0]);
-  let columnIndex = parseInt(location[1]);
+  let position = this.id.split("_");
+  let rowIndex = parseInt(position[0]);
+  let columnIndex = parseInt(position[1]);
   if (this.className === "alive") {
     this.setAttribute("class", "dead");
     gridMatrix[rowIndex][columnIndex] = 0;
@@ -56,8 +57,7 @@ function cellChangeColor() {
     gridMatrix[rowIndex][columnIndex] = 1;
   }
 }
-
-//FUNCION PARA CREAR MATRIZ DEL PRINCIPIO DEL JUEGO
+//FUNCION PARA CREAR MATRIZ
 function createGridMatrix(dimensionX, dimensionY) {
   for (let i = 0; i < dimensionX; i++) {
     gridMatrix[i] = [];
@@ -69,7 +69,7 @@ function createGridMatrix(dimensionX, dimensionY) {
   return gridMatrix;
 }
 
-//FUNCION PARA CELULAS VECINAS
+//FUNCION PARA CONTAR CELULAS VECINAS
 function countNeighbours() {
   for (let i = 0; i < dimensionX; i++) {
     for (let j = 0; j < dimensionY; j++) {
@@ -101,26 +101,13 @@ function countNeighbours() {
       if (gridMatrix[i + 1] !== undefined && gridMatrix[i + 1][j - 1] === 1) {
         count++;
       }
-
       neighboursArray.push(count);
       console.log(neighboursArray);
       count = 0;
     }
   }
-  createNewGridMatrix(dimensionX, dimensionY);
-  dearOrAlive(dimensionX, dimensionY);
-}
 
-//FUNCION PARA SIGUIENTE MATRIZ
-function createNewGridMatrix(dimensionX, dimensionY) {
-  for (let i = 0; i < dimensionX; i++) {
-    newGridMatrix[i] = [];
-    for (let j = 0; j < dimensionY; j++) {
-      newGridMatrix[i][j] = [];
-      newGridMatrix[i][j] = 0;
-    }
-  }
-  return gridMatrix;
+  dearOrAlive(dimensionX, dimensionY);
 }
 
 //FUNCION PARA VER COMO QUEDA LA NUEVA MATRIZ
@@ -129,26 +116,43 @@ function dearOrAlive(dimensionX, dimensionY) {
   for (let i = 0; i < dimensionX; i++) {
     for (let j = 0; j < dimensionY; j++) {
       if (gridMatrix[i][j] === 1 && neighboursArray[counter] === 0) {
-        newGridMatrix[i][j] = 0;
+        gridMatrix[i][j] = 0;
       }
       if (gridMatrix[i][j] === 1 && neighboursArray[counter] === 3) {
-        newGridMatrix[i][j] = 1;
+        gridMatrix[i][j] = 1;
       }
       if (gridMatrix[i][j] === 1 && neighboursArray[counter] === 2) {
-        newGridMatrix[i][j] = 1;
+        gridMatrix[i][j] = 1;
       }
       if (gridMatrix[i][j] === 1 && neighboursArray[counter] > 3) {
-        newGridMatrix[i][j] = 0;
+        gridMatrix[i][j] = 0;
       }
       if (gridMatrix[i][j] === 0 && neighboursArray[counter] === 3) {
-        newGridMatrix[i][j] = 1;
+        gridMatrix[i][j] = 1;
       }
       counter++;
     }
   }
-  console.log(newGridMatrix);
+  console.log(gridMatrix);
+  paintNewGrid();
 }
 
+//FUNCION PARA QUE SE RECARGUE EL JUEGO
 const resetGame = () => {
   location.reload();
 };
+
+//FUNCION PARA PINTAR DE NUEVO EL GRID
+function paintNewGrid() {
+  let cell = "";
+  for (let i = 0; i < dimensionX; i++) {
+    for (let j = 0; j < dimensionY; j++) {
+      cell = document.getElementById(i + "_" + j);
+      if (gridMatrix[i][j] == 0) {
+        cell.setAttribute("class", "dead");
+      } else {
+        cell.setAttribute("class", "alive");
+      }
+    }
+  }
+}
