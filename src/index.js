@@ -44,7 +44,7 @@ function cellChangeColor() {
   }
 }
 
-//FUNCION PARA CREAR MATRICES
+//FUNCION PARA CREAR MATRIZ DEL PRINCIPIO DEL JUEGO
 function createGridMatrix(dimensionX, dimensionY) {
   for (let i = 0; i < dimensionX; i++) {
     gridMatrix[i] = [];
