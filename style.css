@@ -26,7 +26,7 @@ body {
   padding: 0.8rem;
   border-radius: 20px;
   border: 1px solid white;
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   color: white;
   background-color: lightpink;
   margin: 0 auto;
@@ -62,7 +62,7 @@ td.alive {
   margin-bottom: 2rem;
   color: palevioletred;
   font-size: 4rem;
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
 }
 
 .game-setup-container {
@@ -70,7 +70,7 @@ td.alive {
   flex-direction: column;
   align-items: center;
   gap: 25px;
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   text-align: center;
   color: pink;
 }
@@ -103,7 +103,7 @@ td.alive {
   padding: 0.8rem;
   border-radius: 20px;
   border: 1px solid white;
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   color: white;
   background-color: lightpink;
 }
